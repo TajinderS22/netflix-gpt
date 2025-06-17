@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import bcrypt from 'bcrypt'
+import client from '../rootUTILS/genai.js'
 
 
 
@@ -87,6 +88,26 @@ app.post('/auth/signup',async(req,res)=>{
         }
         console.log(err.errorResponse.errmsg)
     }
+})
+
+app.post('/gpt',async (req,res)=>{
+    const {querry}=req.body
+    const searchQuerry='Act as a movies recommendation system and suggest some movies for the Querry:' + querry+ '. Just give me the names of 5 movies, as comma seperated like the example Result given ahead .Example Result : gadar, Sholay, DON,  Golmaal ,  koi mil gaya.'
+    try {
+    const GPTResults = await client.models.generateContent({
+        model:'gemini-2.0-flash',
+        contents:searchQuerry
+    })
+
+    // console.log(GPTResults.text);
+    console.log(GPTResults.text)
+
+    res.status(200).json(GPTResults.text);
+  } catch (error) {
+    console.error("GPT Error:", error);
+    res.status(500).json({ error: "GPT API failed" });
+  }
+
 })
 
 app.post('/auth/signin',async(req,res)=>{

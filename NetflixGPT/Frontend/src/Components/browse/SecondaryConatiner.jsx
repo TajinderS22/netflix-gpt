@@ -8,8 +8,8 @@ const SecondaryConatiner = () => {
   
 
   return (
-    <div className=' '>
-      <div className=' -mt-44 overflow-y-visible '>
+    <div className=' relative '>
+      <div className=' mt-[15%] md:-mt-44 overflow-y-visible '>
       <MoviesList title='Now Playing' movies={movies.NowPlayingMovies} />
       <MoviesList title='Popular' movies={movies.PopularMovies} />
       <MoviesList title='TopRated' movies={movies.TopRated} />
