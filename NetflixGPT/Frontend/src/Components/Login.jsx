@@ -82,7 +82,7 @@ const Login=()=> {
             
             <div className='   text-white pt-44' >
 
-                <div className='bg-zinc-950/70 h-[600px] w-[450px] m-auto py-4 rounded-xl  px-[2.5%]'>
+                <div className='bg-zinc-950/70 h-[600px] md:w-[450px] w-[90svw] m-auto py-4 rounded-xl  px-[2.5%]'>
                     <div className='text-left m-4 text-4xl font-bold mx-8'> 
                         {isLoginForm?"SignIn":"SignUp"}
                     </div>

@@ -11,7 +11,7 @@ const VideoBackground = ({ id }) => {
   if (!trailer) return null;
   // console.log(trailer)
   return (
-    <div className='w-screen max-w-[2700px] max-h-[1500px] absolute  '>
+    <div className='w-screen max-w-[2700px] max-h-[1500px] absolute pt-24  md:pt-0 '>
       <iframe
         className='w-screen max-w-[2700px]  aspect-video  '
         src={`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1&controls=0&loop=1`}
