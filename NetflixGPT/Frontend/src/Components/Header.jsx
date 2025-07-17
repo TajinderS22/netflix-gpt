@@ -4,10 +4,9 @@ import UserContext from '../Utils/context/UserContext'
 import { Link } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeUser } from '../Utils/UserSlice'
-import { selectLanguage, setMoviesSearchedFromGPT } from '../Utils/configSlice'
+import { selectLanguage } from '../Utils/configSlice'
 import { SUPPORTED_LANGUAGES } from '../Utils/Constants'
 import { lang } from '../Utils/LanguageConstatnts'
-import { removeGPTMovies } from '../Utils/moviesSlice'
 function Header() {
     const {isLoginForm,setisLoginForm,isUserLogedIn,setisUserLogedIn,setshowGPTSearch,showGPTSearch}=useContext(UserContext)
     const user=useSelector((state)=>state.user)
@@ -15,33 +14,30 @@ function Header() {
     useEffect(()=>{
         // console.log(isUserLogedIn)
     },[isUserLogedIn])
-    if(!showGPTSearch) {
-        dispatch(removeGPTMovies(null))
-        dispatch(setMoviesSearchedFromGPT(false))
-    }
 
   return (
-      <div className='bg-gradient-to-b from-black  absolute w-[100svw] max-w-[2700px] z-50 '>
-        <nav className=' w-full md:pt-6  max-w-[1800px] pt-2 sticky top-0  mx-auto items-center not-md:flex-col not-md:flex not-md:justify-center  md:flex justify-between md:px-2 px-2  text-right pb-2 '> 
+      <div className='bg-gradient-to-b from-black absolute w-[100svw] max-w-[2700px] z-50 '>
+        <nav className=' w-full pt-6 max-w-[1800px]  sticky top-0  mx-auto flex justify-between md:px-2 px-2  text-right pb-2 '> 
         {/* logo */}
         <Link to='/'>
-        <div className="w-30 not-md:mb-6  " >
+        <div className="w-30 " >
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" className='' alt="Logo of Netflix" />
         </div>
         </Link>
         {/* links */}
-        <div className=' flex justify-end mb-6 '>
+        <div className=' flex justify-end w'>
             
-            {user?
-                isUserLogedIn &&
-                <div>
-                    <button className=' text-lg text-black rounded-lg h-8 font-meduim bg-green-400 px-4' onClick={()=> {setshowGPTSearch(!showGPTSearch)}}>
-                        {showGPTSearch? "Homepage" :"GPT Search"}
-                    </button>
-                </div>
-             : 
+            {/* {user? */}
+            
+            <div>
+                <button className=' text-lg text-black rounded-lg h-8 font-meduim bg-green-400 px-4' onClick={()=> {setshowGPTSearch(!showGPTSearch)}}>
+                    {showGPTSearch? "Homepage" :"GPT Search"}
+                </button>
+                {console.log(showGPTSearch)}
+            </div>
+            {/* : 
             null
-            } 
+            } */}
 
             <div className='  ' >
                 

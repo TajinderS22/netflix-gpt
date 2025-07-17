@@ -1,1 +1,0 @@
-export const GEN_AI_API_KEY='AIzaSyDjMEu5HStTqSNK6l7ssDjffGX9XpreKg0'

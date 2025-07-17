@@ -4,22 +4,17 @@ const configSlice=createSlice(
     {
         name:'config',
         initialState:{
-            Language:'en',
-            MoviesSearchedFromGPT:false,
-
+            Language:'en'
         },
         reducers:{
             selectLanguage:(state,action)=>{
                 state.Language=action.payload;
-            },
-            setMoviesSearchedFromGPT:(state,action)=>{
-                state.MoviesSearchedFromGPT=action.payload
             }
         }
 
         
     }
 )
-export const{selectLanguage,setMoviesSearchedFromGPT}=configSlice.actions
+export const{selectLanguage}=configSlice.actions
 
 export default configSlice.reducer
