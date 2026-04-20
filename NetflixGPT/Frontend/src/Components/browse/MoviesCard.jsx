@@ -1,28 +1,17 @@
-import React from 'react'
-import { TMDB_POSTER_CDN_URL } from '../../Utils/Constants'
-import TestHoverDetails from './TestHoverDetails'
-// import client from './../../../../rootUTILS/genai'
-// import { useNavigate } from 'react-router'
+import React from "react";
+import { useDispatch } from "react-redux";
+import { TMDB_POSTER_CDN_URL } from "../../Utils/Constants";
+import { setSelectedMovie } from "../../Utils/configSlice";
 
-const MoviesCard = ({posterPath,data}) => {
-  //  const navigate=useNavigate();
-    const handleclick=async()=>{
-      console.log(data)
-      // const searchQuery='suppose you are a movies recommendation system and gives one suitable link where the movie available in query is available and just give me the URL. query:' + data?.original_title + 'give me the link of page of platform where it is available . Just Link.if you cant give url then just give null'
-      // const movieLink= await client.models.generateContent({
-      //   model:"gemini-2.0-flash",
-      //   contents:searchQuery
-      // }) 
-      // console.log(movieLink.text);
-    //   if (!movieLink.text || movieLink.text.trim() === "null") {
-    //     navigate('/testbrowse');
-    //   } else {
-    //     window.open(movieLink.text.trim(), "_blank");
-    //   }
-    }
-  if(!posterPath) return null;
+const MoviesCard = ({ posterPath, data }) => {
+  const dispatch = useDispatch();
+
+  const handleclick = async () => {
+    dispatch(setSelectedMovie(data));
+  };
+  if (!posterPath) return null;
   return (
-    <div 
+    <div
       className="group relative md:w-[250px] hover:w-[250px]  hover:mb-[10%] w-[350px] h-fit mx-2 movie-card-float z-30 hover:-mt-6 transition-all duration-500 ease-in-out cursor-pointer my-2"
       onClick={() => handleclick()}
     >
@@ -39,8 +28,7 @@ const MoviesCard = ({posterPath,data}) => {
         <p className="text-xs">{data?.overview}...</p>
       </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default MoviesCard
+export default MoviesCard;

@@ -3,7 +3,7 @@ import { lang } from '../../Utils/LanguageConstatnts'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { TMDB_API_OPTIONS } from '../../Utils/Constants'
-import { addGPTMovies } from '../../Utils/moviesSlice'
+import { addGPTMovies, LoadingGPTMovies, removeGPTMovies } from '../../Utils/moviesSlice'
 import { setMoviesSearchedFromGPT } from '../../Utils/configSlice'
 
 const GPTSearchBar = () => {
@@ -11,6 +11,8 @@ const GPTSearchBar = () => {
     const searchText=useRef(null);
     const selectedLanguage =useSelector((store)=>store.config)
     const currentLang=lang[selectedLanguage.Language]
+
+
 
     const searchMovieInTMDB=async (movie)=>{
       
@@ -22,7 +24,10 @@ const GPTSearchBar = () => {
 
     }
       const handleGPTSearchClick=async()=>{
+      await dispatch(LoadingGPTMovies(true));
+      await dispatch(removeGPTMovies());
       const querry=searchText.current.value;
+      console.log(querry)
       try {
         const response= await axios.post('http://localhost:3000/gpt ', {querry})
         console.log(response.data)
@@ -30,11 +35,11 @@ const GPTSearchBar = () => {
         console.log(GPTMovies)
 
         const promiseArray = GPTMovies.map(movie=>searchMovieInTMDB(movie))
-        // we will get promises from here not the result and data will be of no use
-        // to deal with this issue we have promise.all(arr) it waits for all promises to finish and givve us actual data 
+       
         const searchedMoviesData = await Promise.all(promiseArray)
         dispatch(addGPTMovies(searchedMoviesData))
         dispatch(setMoviesSearchedFromGPT(true))
+        await dispatch(LoadingGPTMovies(false));
         
       } catch (error) {
         console.log(error)

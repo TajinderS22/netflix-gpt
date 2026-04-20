@@ -9,6 +9,7 @@ const usePopularMovies = () => {
     const getPopular=async ()=>{
         try{
         let data =await axios.get(TMDB_URL_POPULAR,TMDB_API_OPTIONS)
+        console.log(TMDB_API_OPTIONS)
         data=data.data.results;
         dispatch(addPopularMovies(data))
         }catch(err){
