@@ -162,6 +162,7 @@ app.post("/gpt", async (req, res) => {
 
 app.post("/auth/signin", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email)
   const user = await userModel.find({
     email: email,
   });
