@@ -69,15 +69,15 @@ const Login = () => {
     }
   };
   return (
-    <div className=" h-[100svh] ">
+    <div className=" h-[100svh] max-w-[1920px] overflow-hidden ">
       <Header />
 
       <div
         className="
-        bg-black/10 w-[100svw] min-h-[80svh]  bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/8cc08720-ac1c-4364-bcbd-9495bf0308cd/web/IN-en-20260323-TRIFECTA-perspective_0b8c8e4e-71ee-48bd-8e16-da74f083a838_large.jpg)] bg-no-repeat bg-cover bg-blend-overlay"
+        bg-black/10 w-screen max-w-[1920px] min-h-[100svh]  bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/8cc08720-ac1c-4364-bcbd-9495bf0308cd/web/IN-en-20260323-TRIFECTA-perspective_0b8c8e4e-71ee-48bd-8e16-da74f083a838_large.jpg)] bg-no-repeat bg-cover bg-blend-overlay"
       >
-        <div className="   text-white pt-44">
-          <div className="bg-zinc-950/70 h-[600px] md:w-[450px] w-[90svw] m-auto py-4 rounded-xl  px-[2.5%]">
+        <div className="   text-white pt-44 max-w-[1920px ]">
+          <div className="bg-zinc-950/70 h-[600px] md:w-[450px] max-w-[1920px ] m-auto py-4 rounded-xl  px-[2.5%]">
             <div className="text-left m-4 text-4xl font-bold mx-8">
               {isLoginForm ? "SignIn" : "SignUp"}
             </div>
@@ -107,7 +107,7 @@ const Login = () => {
                 }}
               />
               <input
-                type="tex"
+                type="password"
                 placeholder="Password"
                 className="bg-gray-600/50 p-2 m-4 mx-8 border-1 border-red-200/50 rounded-lg  hover:shadow-md hover:shadow-red-600/50 "
                 onChange={(e) => {
@@ -122,16 +122,14 @@ const Login = () => {
                 Submit
               </button>
             </form>
-            <div>
-              <p className="mt-4">Foget password?</p>
-            </div>
+            <div>{isLoginForm && <p className="mt-4">Fogot password?</p>}</div>
             <div>
               {isLoginForm ? (
                 <p className="text-md my-4 mt-10 text-left mx-8">
                   New to Netlflix?{" "}
                   <span
                     onClick={() => setisLoginForm(!isLoginForm)}
-                    className="font-medium text-lg"
+                    className="font-medium text-lg text-red-600"
                   >
                     {" "}
                     Signup{" "}
@@ -142,7 +140,7 @@ const Login = () => {
                   Already a member?{" "}
                   <span
                     onClick={() => setisLoginForm(!isLoginForm)}
-                    className="font-medium text-lg"
+                    className="font-medium text-lg text-red-600"
                   >
                     {" "}
                     Sign in{" "}

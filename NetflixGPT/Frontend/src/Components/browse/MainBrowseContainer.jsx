@@ -13,7 +13,7 @@ const MainBrowseContainer = () => {
   // console.log(mainMovie)
   const { original_title, overview, id } = mainMovie;
   return (
-    <div className=" max-w-[2700px] max-h-[1500px] mx-auto ">
+    <div className=" max-w-[1920px] max-h-[1500px] mx-auto ">
      
       <div className="w-screen max-h-[1500px]  aspect-video">
         <VideoBackground id={id} />

@@ -22,7 +22,7 @@ const Browse=()=> {
       <div className="min-w-[100svw]">
         <div
           className="bg-[#4d070e] bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/8cc08720-ac1c-4364-bcbd-9495bf0308cd/web/IN-en-20260323-TRIFECTA-perspective_0b8c8e4e-71ee-48bd-8e16-da74f083a838_large.jpg
-)] max-w-[2700px] min-h-[100svh] 
+)] max-w-[1720px] min-h-[100svh] 
     bg-blend-darken
     bg-cover
     -z-10"

@@ -8,7 +8,7 @@ const SecondaryConatiner = () => {
 
   return (
     <div className=" relative ">
-      <div className=" mt-[15%] md:-mt-44 overflow-y-visible ">
+      <div className=" mt-[20%] md:-mt-22  overflow-y-visible ">
         <MoviesList title="Now Playing" movies={movies.NowPlayingMovies} />
         <MoviesList title="Popular" movies={movies.PopularMovies} />
         <MoviesList title="TopRated" movies={movies.TopRated} />

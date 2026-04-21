@@ -7,9 +7,9 @@ const VideoTitle = (value) => {
     const dispatch=useDispatch()
     // console.log(original_title)
   return (
-    <div className=' text-left md:w-[60%] md:pl-[5%] not-md:mt-12 pl-6  mb-44  relative  min-h-[100%] top  pt-[14%] max-h-[1500px]  text-white bg-gradient-to-r  from-black ' >
+    <div className=' text-left md:w-[60%] max-w-[1720px] md:pl-[5%] not-md:mt-12 pl-6  mb-44  relative  h-full  top  pt-[12%] max-h-[1200px]  text-white bg-gradient-to-r  from-black ' >
 
-        <h1 className='font-bold md:text-6xl mt-18 text-[2em] md:my-6'>
+        <h1 className='font-bold md:text-6xl md:mt-18 text-[2em] md:my-6'>
             {original_title}
         </h1>
         <p className='my-6 md:text-xl text-[1em]  w-7/12'>

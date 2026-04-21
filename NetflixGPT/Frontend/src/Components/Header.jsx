@@ -46,7 +46,7 @@ function Header() {
             ? isUserLogedIn && (
                 <Link to={showGPTSearch ? "/browse" : "/gptSearch"}>
                   <button
-                    className=" text-lg text-black rounded-lg h-8 font-meduim bg-gray-400 ring-0 ring-white px-4"
+                    className=" text-lg cursor-pointer  text-black rounded-lg h-8 font-meduim bg-gray-400 ring-0 ring-white px-4"
                     onClick={() => {
                       setshowGPTSearch(!showGPTSearch);
                     }}
@@ -61,7 +61,7 @@ function Header() {
             <select
               name="language"
               id="language-selection"
-              className="border-1 h-8 p-1 mx-2 rounded-4xl flex justify-center"
+              className="border-1 cursor-pointer  bg-gray-200/20 h-8 p-1 mx-2 rounded-lg flex justify-center"
               onChange={(e) => {
                 dispatch(selectLanguage(e.target.value));
               }}
@@ -70,7 +70,7 @@ function Header() {
                 <option
                   key={lang.identifier}
                   value={lang.identifier}
-                  className="text-black  "
+                  className="text-black m-1 rounded-2xl  "
                 >
                   {lang.name}
                 </option>
@@ -79,14 +79,14 @@ function Header() {
           </div>
 
           {user ? (
-            <div className="  hover:bg-red-700    hover:text-white h-8 p-1 hover:shadow-lg hover:shadow-blue-400 rounded-3xl">
+            <div className="  hover:bg-red-900    hover:text-white h-8 p-1 pb-2 px-2 hover:shadow-md cursor-pointer  hover:shadow-red-600 rounded-3xl">
               {user.name}
             </div>
           ) : null}
           <div>
             <Link to="/auth">
               <button
-                className="bg-white text-black w-24 p-1 border-1 rounded-4xl ml-2"
+                className="bg-white cursor-pointer  text-black w-24 p-1 border-1 rounded-4xl ml-2"
                 onClick={() => {
                   if (isUserLogedIn) {
                     dispatch(removeUser());
