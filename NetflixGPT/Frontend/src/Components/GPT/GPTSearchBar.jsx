@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { lang } from '../../Utils/LanguageConstatnts'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { TMDB_API_OPTIONS } from '../../Utils/Constants'
+import { backedServer, TMDB_API_OPTIONS } from '../../Utils/Constants'
 import { addGPTMovies, LoadingGPTMovies, removeGPTMovies } from '../../Utils/moviesSlice'
 import { setMoviesSearchedFromGPT } from '../../Utils/configSlice'
 
@@ -29,7 +29,7 @@ const GPTSearchBar = () => {
       const querry=searchText.current.value;
       console.log(querry)
       try {
-        const response= await axios.post('http://localhost:3000/gpt ', {querry})
+        const response= await axios.post(`${backedServer}/gpt `, {querry})
         console.log(response.data)
         const GPTMovies=response.data.split(",")
         console.log(GPTMovies)

@@ -27,13 +27,26 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("User", userSchema);
 
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://netflixgpt.tajinder.in",
+];
+
 const corsOptions = {
-  origin: "*",
-  methods: "GET,POST,UPDATE,PUT,DELETE,OPTIONS",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
 };
 
 const app = express();
-const port = 3000;
+const port = 3004;
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 const saltRounds = 10;

@@ -7,6 +7,7 @@ import axios from "axios";
 import { addUser } from "../Utils/UserSlice";
 import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router";
+import { backedServer } from "../Utils/Constants";
 
 const Login = () => {
   const context = useContext(UserContext);
@@ -37,7 +38,7 @@ const Login = () => {
     if (!isLoginForm) {
       try {
         const response = await axios.post(
-          "http://localhost:3000/auth/signup",
+          backedServer+"/auth/signup",
           data,
         );
         console.log(response.data);
@@ -54,7 +55,7 @@ const Login = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://localhost:3000/auth/signin",
+          backedServer+"/auth/signin",
           data,
         );
         console.log(response.data[0]);
