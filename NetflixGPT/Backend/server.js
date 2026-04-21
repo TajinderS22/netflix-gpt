@@ -48,6 +48,7 @@ const corsOptions = {
 const app = express();
 const port = process.env.PORT || 3004;
 app.use(bodyParser.json());
+app.use(express.json())
 app.use(cors(corsOptions));
 const saltRounds = 10;
 
