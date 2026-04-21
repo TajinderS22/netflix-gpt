@@ -27,10 +27,10 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("User", userSchema);
 
-
 const allowedOrigins = [
   "http://localhost:5173",
   "https://netflixgpt.tajinder.in",
+  "https://apinetflixgpt.tajinder.in",
 ];
 
 const corsOptions = {
@@ -46,7 +46,7 @@ const corsOptions = {
 };
 
 const app = express();
-const port = 3004;
+const port = process.env.PORT || 3004;
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 const saltRounds = 10;
@@ -177,6 +177,6 @@ app.post("/auth/signin", async (req, res) => {
   res.status(400).json({ message: " User Not Found" });
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`server is running on port ${port}.`);
 });

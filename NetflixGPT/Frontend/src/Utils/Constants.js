@@ -25,8 +25,8 @@ export const SUPPORTED_LANGUAGES=[{identifier:'en',name:"English"},
 ]
 
 
-export const backedServer="http://localhost:3004"
-// export const backedServer = "https://apinetflixgpt.tajinder.in";
+// export const backedServer="http://localhost:3004"
+export const backedServer = "http://apinetflixgpt.tajinder.in";
 
 
 
