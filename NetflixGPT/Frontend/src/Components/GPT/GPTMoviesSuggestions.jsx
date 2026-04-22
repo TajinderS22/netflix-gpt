@@ -44,7 +44,6 @@ const GPTMoviesSuggestions = () => {
     );
 
   if (loadingGptMovies) {
-    console.log(loadingGptMovies);
     return <Loading />;
   }
 };

@@ -12,7 +12,7 @@ const useTopRated = () => {
         data=data.data.results;
         dispatch(addTopRated(data))
         }catch(err){
-        console.log(err)
+        console.error(err)
         }
     }
     useEffect(()=>{

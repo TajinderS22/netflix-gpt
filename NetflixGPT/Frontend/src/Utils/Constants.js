@@ -8,12 +8,10 @@ export const TMDB_API_OPTIONS = {
   },
 };
 
-console.log(import.meta)
 
 export const TMDB_URL_NOWPLAYING="https://api.themoviedb.org/3/movie/now_playing?page=1"
 const Api_key = import.meta.env.VITE_TMDB_API_KEY;
 
-console.log(Api_key)
 export const TMDB_URL_POPULAR='https://api.themoviedb.org/3/movie/popular?page=1'
 
 export const TMDB_POSTER_CDN_URL="https://image.tmdb.org/t/p/w500"

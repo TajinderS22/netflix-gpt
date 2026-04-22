@@ -12,7 +12,7 @@ const useNowPlayingMovies = () => {
         data=data.data.results;
         dispatch(addNowPlayingMovies(data))
         }catch(err){
-        console.log(err)
+        console.error(err)
         }
     }
     useEffect(()=>{

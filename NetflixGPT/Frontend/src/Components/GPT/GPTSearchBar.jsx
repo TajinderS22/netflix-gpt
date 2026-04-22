@@ -27,12 +27,11 @@ const GPTSearchBar = () => {
       await dispatch(LoadingGPTMovies(true));
       await dispatch(removeGPTMovies());
       const querry=searchText.current.value;
-      console.log(querry)
       try {
         const response= await axios.post(`${backedServer}/gpt `, {querry})
-        console.log(response.data)
+        
         const GPTMovies=response.data.split(",")
-        console.log(GPTMovies)
+
 
         const promiseArray = GPTMovies.map(movie=>searchMovieInTMDB(movie))
        
@@ -42,7 +41,7 @@ const GPTSearchBar = () => {
         await dispatch(LoadingGPTMovies(false));
         
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     }
     

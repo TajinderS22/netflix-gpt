@@ -10,7 +10,6 @@ const MainBrowseContainer = () => {
   const randomIndex = Math.floor(Math.random() * movies.length);
 
   const mainMovie = movies[Math.floor(randomIndex)];
-  // console.log(mainMovie)
   const { original_title, overview, id } = mainMovie;
   return (
     <div className=" max-w-[1920px] max-h-[1500px] mx-auto ">

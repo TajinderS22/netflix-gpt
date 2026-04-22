@@ -13,7 +13,6 @@ const Login = () => {
   const context = useContext(UserContext);
   const { isLoginForm, setisLoginForm, isUserLogedIn, setisUserLogedIn } =
     useContext(UserContext);
-  // console.log(isLoginForm)
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ const Login = () => {
   const [password, setpassword] = useState(null);
   const [errorMessage, seterrorMessage] = useState(null);
 
-  // console.log(username,email,password)
 
   const HandleAuthClick = async () => {
     // const isDataValid=checkValidData(email,password)
@@ -41,15 +39,13 @@ const Login = () => {
           backedServer+"/auth/signup",
           data,
         );
-        console.log(response.data);
         dispatch(addUser(response.data));
         localStorage.setItem("user", JSON.stringify(response.data));
         setisUserLogedIn(true);
 
-        console.log(isUserLogedIn);
         navigate("/browse");
       } catch (err) {
-        console.log(err);
+        console.error(err);
         seterrorMessage(err.response.data.message);
       }
     } else {
@@ -58,13 +54,12 @@ const Login = () => {
           backedServer+"/auth/signin",
           data,
         );
-        console.log(response.data[0]);
         dispatch(addUser(response.data[0]));
         localStorage.setItem("user", JSON.stringify(response.data[0]));
         setisUserLogedIn(true);
         navigate("/browse");
       } catch (err) {
-        console.log(err);
+        console.error(err);
         seterrorMessage(err.response.data.message);
       }
     }

@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 const VideoTitle = (value) => {
     const { original_title, overview , mainMovie} = value.value;
     const dispatch=useDispatch()
-    // console.log(original_title)
   return (
     <div className=' text-left md:w-[60%] max-w-[1720px] md:pl-[5%] not-md:mt-12 pl-6  mb-44  relative  h-full  top  pt-[12%] max-h-[1200px]  text-white bg-gradient-to-r  from-black ' >
 

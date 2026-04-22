@@ -20,7 +20,6 @@ function Header() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(() => {
-    // console.log(isUserLogedIn)
   }, [isUserLogedIn]);
   if (!showGPTSearch) {
     dispatch(removeGPTMovies(null));

@@ -6,9 +6,7 @@ const MoviesList = ({title,movies}) => {
     if (!movies || movies.length === 0) return null;
     if(!title) return null
 
-    console.log(movies)
-    console.log(movies.length)
-
+ 
   return (
 
     <div className=' flex flex-col  md:pt-0 text-left not-md:h-[620px] max-w-screen px-5  '>

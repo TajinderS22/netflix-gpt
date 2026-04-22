@@ -58,12 +58,10 @@ const uri = process.env.MONGO_DB_Uri;
 // const connectDB = async () => {
 //   try {
 //     if (mongoose.connection.readyState === 1) {
-//       console.log(" MongoDB already connected");
 //       return;
 //     }
 
 //     await mongoose.connect(uri);
-//     console.log(" MongoDB connected");
 //   } catch (error) {
 //     console.error(" MongoDB connection error:", error);
 
@@ -85,10 +83,8 @@ app.get("/", (req, res) => {
 app.post("/auth/signup", async (req, res) => {
   const { username, email, password } = req.body;
 
-  console.log(req.body);
 
   // const hashedPassword= bcrypt.hash(password,saltRounds,(err,hash)=>{
-  //     console.log(hash)
   // })
   const hashedPassword = bcrypt.hashSync(password, saltRounds);
   const newUser = new userModel({
@@ -99,13 +95,12 @@ app.post("/auth/signup", async (req, res) => {
   });
   try {
     await newUser.save();
-    console.log("Saved new user ");
     res.status(200).json(newUser);
   } catch (err) {
     if (err.errorResponse.errmsg.includes("duplicate key error collection")) {
       res.status(400).json({ message: " User already registered" });
     }
-    console.log(err?.errorResponse?.errmsg);
+    console.error(err?.errorResponse?.errmsg);
   }
 });
 
@@ -163,11 +158,9 @@ app.post("/gpt", async (req, res) => {
 
 app.post("/auth/signin", async (req, res) => {
   const { email, password } = req.body;
-  console.log(email)
   const user = await userModel.find({
     email: email,
   });
-  console.log(user);
   if (user[0] != null) {
     if (bcrypt.compareSync(password, user[0].password)) {
       res.status(200).json(user);
